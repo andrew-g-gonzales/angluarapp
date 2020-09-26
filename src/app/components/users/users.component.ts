@@ -82,9 +82,6 @@ export class UsersComponent implements OnInit {
 
   fireEvent(e){
      console.log(e);
-
-    
-
   }
 
 
