@@ -36,12 +36,7 @@ export class UserComponent {
         this.user = {
             firstName: 'John',
             lastName: 'Doe',
-            age: 30,
-            address: {
-                street: '50 Main ST',
-                city: 'Boston',
-                state: 'MA'
-            }
+            email: 'john@gmail.com'
 
         }
     }

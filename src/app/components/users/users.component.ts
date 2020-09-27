@@ -10,12 +10,7 @@ export class UsersComponent implements OnInit {
   user: User = {
       firstName: '',
       lastName: '',
-      age: null,
-      address: {
-        street: '',
-        city: '',
-        state: ''
-      }
+      email: ''
   };
   users: User[];
   showExtended:boolean = true;
@@ -28,50 +23,6 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
 
       setTimeout(() =>{
-
-        /*this.addUser({
-          firstName: 'John',
-          lastName: 'Doe',
-          age: 30,
-          address: {
-              street: '50 Main ST',
-              city: 'Boston',
-              state: 'MA'
-          },
-          isActive: true,
-          registered: new Date('01/02/2018 08:30:00'),
-          hide: true
-      });
-
-      this.addUser({
-            firstName: 'Jane',
-            lastName: 'Doe',
-            age: 30,
-            address: {
-                street: '51 Main ST',
-                city: 'Boston',
-                state: 'MA'
-            },
-
-            isActive: false,
-            registered: new Date('03/11/2017 06:30:00'),
-            hide: true
-        });
-
-        this.addUser({
-            firstName: 'Debby',
-            lastName: 'Downer',
-            age: 78,
-            address: {
-                street: '1000 5th Ave',
-                city: 'NY',
-                state: 'NY'
-            },
-            isActive: true,
-            registered: new Date('01/02/2016 10:30:00'),
-            hide: true
-        });*/
-
 
       this.loaded = true;
      
