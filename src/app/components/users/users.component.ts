@@ -7,11 +7,21 @@ import { User } from '../../models/User';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
+  user: User = {
+      firstName: '',
+      lastName: '',
+      age: null,
+      address: {
+        street: '',
+        city: '',
+        state: ''
+      }
+  };
   users: User[];
   showExtended:boolean = true;
   loaded:boolean = false;
-  enableAdd:boolean = true;
+  enableAdd:boolean = false;
+  showUserForm:boolean =false;
 
   constructor() { }
 
@@ -19,7 +29,7 @@ export class UsersComponent implements OnInit {
 
       setTimeout(() =>{
 
-        this.addUser({
+        /*this.addUser({
           firstName: 'John',
           lastName: 'Doe',
           age: 30,
@@ -60,7 +70,7 @@ export class UsersComponent implements OnInit {
             isActive: true,
             registered: new Date('01/02/2016 10:30:00'),
             hide: true
-        });
+        });*/
 
 
       this.loaded = true;
@@ -76,12 +86,24 @@ export class UsersComponent implements OnInit {
 
   }
 
-  addUser(user: User){
-      this.users.push(user);
+  addUser(){
+
+       this.user.isActive = true;
+       this.user.registered = new Date();
+      this.users.unshift(this.user);
   }
 
+  onSubmit(e){
+
+    console.log(123);
+    e.preventDefault();
+  }
+
+
   fireEvent(e){
-     console.log(e);
+
+    console.log(e.type);
+    console.log(e.target.value)
   }
 
 
