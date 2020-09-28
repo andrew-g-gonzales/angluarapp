@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+
 import { User } from '../models/User'
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class UserService {
   users: User[];
+  data: Observable<any>;
 
   constructor() { 
 
@@ -35,16 +38,42 @@ export class DataService {
         hide: true
       }
     ]
-
   }
 
-  getUsers(): User[] {
+  getData(){
+
+    this.data = new Observable(observer => {
+
+        setTimeout(() => {
+          observer.next(1);
+        }, 1000);
+
+        setTimeout(() => {
+          observer.next(2);
+        }, 2000);
+
+        setTimeout(() => {
+          observer.next(3);
+        }, 3000);
+
+        setTimeout(() => {
+          observer.next({name: 'Andrew'});
+        }, 4000);
+    });
+
+    return this.data;
+  }
+
+  getUsers(): Observable<User[]> {
 
     console.log('Fetching users from service...');
-    return this.users;
+    return of(this.users);
   }
 
+  addUser(user: User){
 
+    this.users.unshift(user);
+  }
 
 
 
