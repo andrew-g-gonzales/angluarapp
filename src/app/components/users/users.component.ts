@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { DataService } from '../../services/data.service';
 import { User } from '../../models/User';
+//import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-users',
@@ -19,12 +21,16 @@ export class UsersComponent implements OnInit {
   showUserForm:boolean =false;
   @ViewChild('userForm') form:any;
 
-  constructor() { }
+  constructor(private dataService: DataService) { 
+
+
+  }
 
   ngOnInit(): void {
 
       setTimeout(() =>{
 
+      this.users = this.dataService.getUsers();
       this.loaded = true;
      
 
